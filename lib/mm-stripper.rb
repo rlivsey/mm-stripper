@@ -3,12 +3,10 @@ require 'mongo_mapper'
 module MongoMapper
   module Plugins
     module Stripper
-      def self.included(model)
-        model.plugin self
-      end
+      extend ActiveSupport::Concern
 
-      def self.configure(base)
-        base.before_validation :strip_attributes
+      included do
+        before_validation :strip_attributes
       end
 
       module InstanceMethods
