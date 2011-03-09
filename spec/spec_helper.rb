@@ -2,10 +2,9 @@ $LOAD_PATH.unshift(File.dirname(__FILE__))
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 
 require 'rubygems'
-gem 'rspec'
+require 'rspec'
 
 require 'mm-stripper'
-require 'spec'
 
 MongoMapper.database = 'mm-stripper-spec'
 
@@ -20,5 +19,5 @@ class Something
   key :thing,       Boolean
 end
 
-Spec::Runner.configure do |config|
+RSpec.configure do |config|
 end
